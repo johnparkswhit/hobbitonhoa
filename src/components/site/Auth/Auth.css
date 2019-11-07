@@ -1,0 +1,41 @@
+.input{
+    border: none;
+    border-radius: 20px;
+    background-color: goldenrod;
+    height: 40px;
+    width: 300px;
+    text-indent: 5px;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    font-size: 18px;
+    color:darkgreen;
+    
+}
+.input:focus {
+    outline: none;
+    background-color: darkgreen;
+    color: goldenrod;
+}
+#button {
+    margin-top: 1em;
+    border: none;
+    border-radius: 20px;
+    height: 50px;
+    width: 200px;
+    background-color: darkgreen;
+    color: goldenrod;
+    cursor: pointer;
+    font-size: 15px;
+}
+button:focus{
+    outline:none;
+}
+
+#centerLabel {
+    color:darkgreen;
+}
+
+.userForm h1{
+    color:darkgreen;
+}
+

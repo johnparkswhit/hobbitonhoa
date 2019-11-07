@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'hobbiton_brushhahobbitonbrush';
+    src: url('../../assets/hobbitonbrushhand-webfont.woff2') format('woff2'),
+         url('../../assets/hobbitonbrushhand-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#hobbitonPic {
+    height:125px;
+    /* height:20em; */
+}
+
+#nav {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color:darkgreen;
+    height:125px;
+}
+#welcome {
+    color:goldenrod;
+    margin:5vh;
+    font-size:450%;
+    font-family: 'hobbiton_brushhahobbitonbrush'
+}
+p {
+    font-family: 'arial';
+    background-color: darkgreen;
+    color:goldenrod;
+    font-size:40px;
+}
