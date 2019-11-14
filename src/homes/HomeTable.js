@@ -109,6 +109,7 @@ const HomeTable = (props) => {
         <h2 className="mainDiv">Hobbit Hole Directory</h2>
         <hr/>
         <button className="createButton" onClick={() => {editAddHome(); addOn()}}>Add Yours Now</button>
+        <hr/>
 
         {addActive ? <HomeCreate setAddActive={setAddActive} addActive={addActive} addHome={addHome} addOff={addOff} token={props.token} fetchHomes={fetchHomes}/> : <></>}
 
