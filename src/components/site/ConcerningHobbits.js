@@ -1,11 +1,10 @@
 import React from "react";
-import {Link} from "react-router-dom";
 
 
 const Home = () => {
     return(
         <div className="main">
-            <div className="mainDiv">
+            <div className="hobbitDiv">
                 <h1>Concerning Hobbits</h1>
                 <br/>
                 <p>

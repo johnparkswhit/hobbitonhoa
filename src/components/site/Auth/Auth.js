@@ -1,18 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import './Auth.css'
-import Signup from './Signup'
-import Login from './Login'
 
 const Auth = (props) => {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [login, setLogin] = useState(true);
     const [sessionToken, setSessionToken] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [login, setLogin] = useState(true);
 
     const title = () => {
-        return login ? 'Welcome Back! Please Log In' : 'Welcome to Hobbiton! Sign up for our directory now!'
+        return login ? 'Welcome Back! Sign In Here' : 'Welcome! Sign Up Now!'
     }
 
     const loginToggle = (event) => {
@@ -22,30 +20,15 @@ const Auth = (props) => {
         setPassword('');
         setFirstName('');
         setLastName('');
-
     }
-
-
-  useEffect(() => {
-    if (localStorage.getItem('token')){
-      setSessionToken(localStorage.getItem('token'));
-    }
-  }, [])
-  
-
-    // const updateToken = (newToken) => {
-    //     localStorage.setItem('token', newToken);
-    //     setSessionToken(newToken);
-    //     console.log(sessionToken);
-    //   }
 
     const buttonTitle = () => {
-        return login ? 'New to Hobbiton? Click here to Sign Up' : 'Already a Member? Click to Log In';
+        return login ? 'New to Hobbiton? Click to Sign Up' : 'Already a User? Click to Log In';
     }
-    
+
     const signupFields = () => !login ? 
     (
-        <div id="authDiv">
+        <div>
             <label id="centerLabel" htmlFor='firstName'>First Name:</label>
             <br/>
             <input className="input" type='text' id='firstName' value={firstName} onChange={(event) => setFirstName (event.target.value)} />
@@ -56,54 +39,75 @@ const Auth = (props) => {
         </div>
     ) : null;
 
-    const signupFieldsTwo = () => !login ?
-        (
-            <div id="authDiv">
-                <label id="centerLabel" htmlFor='password'>Confirm Password:</label>
-                <br/>
-                <input className="input" type='password' id='password' value={password} onChange={(event) => setPassword(event.target.value)}/>
-            </div>
-        ):null;
-
-        let handleSubmit = (event) => {
-            event.preventDefault();
-            fetch("http://localhost:3000/user/login", {
-                method: 'POST',
-                body: JSON.stringify({username:username, password:password}),
-                headers: new Headers({
-                    'Content-Type': 'application/json' 
-                })
-            })
-                .then(
-                    (response) => response.json() 
-                ).then((data) => {
-                    props.updateToken(data.sessionToken) 
-                    console.log(data.sessionToken)
-                })
+    useEffect(() => {
+        if (localStorage.getItem('token')){
+        setSessionToken(localStorage.getItem('token'));
         }
+    }, [])
+  
+    let handleSubmit = (event) => {
+        event.preventDefault();
 
-        
+        if (login===true) { 
+
+        fetch("http://localhost:3000/user/login", {
+            method: 'POST',
+            body: JSON.stringify({username:username, password:password}),
+            headers: new Headers({
+                'Content-Type': 'application/json' 
+            })
+        })
+            .then(
+                (response) => response.json() 
+            ).then((data) => {
+                console.log(data)
+                props.updateToken(data.sessionToken) 
+                props.updateID(data.user.id)
+                console.log(data.sessionToken)
+                console.log(data.sessionID)
+            })
+
+        }else{ 
+
+        fetch("http://localhost:3000/user/create", {
+            method: 'POST',
+            body: JSON.stringify({username:username, password:password}),
+            headers: new Headers({
+                'Content-Type': 'application/json'
+            })
+        })
+            .then(
+                (response) => response.json() 
+            ).then((data) => {
+                props.updateToken(data.token)
+                props.updateID(data.user.id)
+                console.log(data.token) 
+            })
+        }
+    }
+
+
     return(
         <div id="authDiv">
             <form className="userForm" onSubmit={handleSubmit}>
                 <h1>{title()}</h1>
                 <br/>
                 {signupFields()}
-                <label id="centerLabel" htmlFor='username'>Username:</label>
+                <label id="centerLabel" htmlFor='username'>Email Address:</label>
                 <br/>
-                <input className="input" type='text' id='username' value= {username} onChange={(event) => setUsername(event.target.value)}/>
+                <input className="input" type='email' id='email' value= {username} onChange={(event) => setUsername(event.target.value)}/>
                 <br/>
-                <label id="centerLabel" htmlFor='password'>Password:</label>
+                <label id="centerLabel" htmlFor='password'>Password (min 5 characters):</label>
                 <br/>
-                <input className="input" type='password' id='password' value={password} onChange={(event) => setPassword(event.target.value)}/>
-                <br/>
-                {signupFieldsTwo()}
-                <button id="button" onClick={loginToggle}>{buttonTitle()}</button>
+                <input className="input" type='password' id='password' pattern=".{5,}" value={password} onChange={(event) => setPassword(event.target.value)}/>
                 <br/>
                 <button id="button" type='submit'>Submit</button>
+                <br/>
+                <button id="button" onClick={loginToggle}>{buttonTitle()}</button>
             </form>
         </div>
     )
 }
 
 export default Auth;
+

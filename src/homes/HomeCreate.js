@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
+import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 
 const HomeCreate = (props) => {
     const [firstName, setFirstName] = useState('')
@@ -9,7 +9,7 @@ const HomeCreate = (props) => {
     const [publicMessage, setPublicMessage] = useState('')
     const [emergencyContact, setEmergencyContact] = useState('')
 
-    const handleSubmit = (event) => {
+    const HomeAdd = (event) => {
         event.preventDefault();
         fetch('http://localhost:3000/home/create', {
             method: 'POST',
@@ -26,50 +26,53 @@ const HomeCreate = (props) => {
                 'Authorization': props.token
             })
         })
-        .then((res) => res.json())
-        .then((logData) => {
-            console.log(logData);
-            setFirstName('')
-            setLastName('')
-            setAddress('')
-            setOccupation('')
-            setPublicMessage('')
-            setEmergencyContact('')
+        .then((res) => {
+
             props.fetchHomes();
+            props.addOff();
         })
     }
 
+
+    const toggle = () => props.setAddActive(!props.addActive);
+
+
     return(
-        <>
-        <h3 className="mainDiv">Enter Your Info Here</h3>
-        <Form onSubmit={(event) => handleSubmit(event)}>
-            <FormGroup>
-                <Label htmlFor="firstName"/>
-                <input className="inputCreate" name="firstName" placeholder="First Name" value={firstName} onChange={(event) => setFirstName(event.target.value)}/>
-            </FormGroup>
-            <FormGroup>
-                <Label htmlFor="lastName"/>
-                <input className="inputCreate" name="lastName" placeholder="Last Name" value={lastName} onChange={(event) => setLastName(event.target.value)}/>
-            </FormGroup>
-            <FormGroup>
-                <Label htmlFor="address"/>
-                <input className="inputCreate" name="address" placeholder="Address" value={address} onChange={(event) => setAddress(event.target.value)}/>
-            </FormGroup>
-            <FormGroup>
-                <Label htmlFor="occupation"/>
-                <input className="inputCreate" name="occupation" placeholder="Occupation" value={occupation} onChange={(event) => setOccupation(event.target.value)}/>
-            </FormGroup>
-            <FormGroup>
-                <Label htmlFor="publicMessage"/>
-                <input className="inputCreate" name="publicMessage" placeholder="Public Message" value={publicMessage} onChange={(event) => setPublicMessage(event.target.value)}/>
-            </FormGroup>
-            <FormGroup>
-                <Label htmlFor="emergencyContact"/>
-                <input className="inputCreate" name="emergencyContact" placeholder="Emergency Contact" value={emergencyContact} onChange={(event) => setEmergencyContact(event.target.value)}/>
-            </FormGroup>
-            <Button id="buttonCreate" type="submit">Submit</Button>
-        </Form>
-    </>
+        <Modal isOpen={props.addActive} toggle={toggle}>
+            <ModalHeader id="modalHeader" toggle={toggle}>Create Your New Hobbit Hole Information Here!</ModalHeader>
+            <ModalBody id="modalBody">
+                <Form id="modalForm" onSubmit={HomeAdd}>
+                    <FormGroup>
+                        <Label htmlFor="firstName">First Name:</Label>
+                        <Input id="modalInput" name="firstName" value={firstName} onChange={(event) => setFirstName(event.target.value)}/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label htmlFor="lastName">Last Name:</Label>
+                        <Input id="modalInput" name="lastName" value={lastName} onChange={(event) => setLastName(event.target.value)}/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label htmlFor="address">Address:</Label>
+                        <Input id="modalInput" name="address" value={address} onChange={(event) => setAddress(event.target.value)}/> 
+                    </FormGroup>
+                    <FormGroup>
+                        <Label htmlFor="occupation">Occupation:</Label>
+                        <Input id="modalInput" name="occupation" value={occupation} onChange={(event) => setOccupation(event.target.value)}/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label htmlFor="publicMessage">Public Message:</Label>
+                        <Input id="modalInput" name="publicMessage" value={publicMessage} onChange={(event) => setPublicMessage(event.target.value)}/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label htmlFor="emergencyContact">Emergency Contact:</Label>
+                        <Input id="modalInput" name="emergencyContact" value={emergencyContact} onChange={(event) => setEmergencyContact(event.target.value)}/>
+                    </FormGroup>
+                    <ModalFooter>
+                        <Button id="modalButton" type="submit">Submit your info!</Button> {''}
+                        <Button id="modalButton" onClick={toggle}>Cancel</Button>
+                    </ModalFooter>
+                </Form>
+            </ModalBody>
+        </Modal>
     )
 }
 

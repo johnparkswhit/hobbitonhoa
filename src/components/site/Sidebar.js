@@ -6,25 +6,28 @@ import {
 } from 'react-router-dom'
 import Home from './Home'
 import ConcerningHobbits from './ConcerningHobbits'
-import Neighborhood from './Neighborhood'
-import Directory from './Directory'
-import Auth from './Auth/Auth'
-import HomeIndex from '../../homes/HomeIndex'
+import About from './About'
+import HomeTable from '../../homes/HomeTable'
+import HobbitonDirectory from './HobbitonDirectory'
+import MischiefTable from '../../mischief/MischiefTable'
+
 
 const Sidebar = (props) => {
     return (
         <div className = "sidebar">
             <div className = "sidebar-list-styling">
                 <ul className="sidebar-list list-unstyled">
-                    <li><Link to = "/home">Home</Link></li>
+                    <li><Link className="sidebarLink" to = "/home">Home</Link></li>
                     <br/>
-                    <li><Link to = "/neighborhood">About Hobbiton</Link></li>
+                    <li><Link className="sidebarLink" to = "/about">About Hobbiton</Link></li>
                     <br/>
-                    <li><Link to = "/concerninghobbits">Concerning Hobbits</Link></li>
+                    <li><Link className="sidebarLink" to = "/concerninghobbits">Concerning Hobbits</Link></li>
                     <br/>
-                    <li><Link to = "/HomeIndex">Neighborhood Directory</Link></li>
+                    <li><Link className="sidebarLink" to ="/HobbitonDirectory">Hobbiton Directory</Link></li>
                     <br/>
-                    <li><Link to ="/auth">Log In/Sign Up</Link></li>
+                    <li><Link className="sidebarLink" to = "/MischiefTable">Rapscallion Report</Link></li>
+                    <br/>
+                    <li><Link className="sidebarLink" to ="/HobbitonDirectory">Log In/Sign Up</Link></li>
                 </ul>
             </div>    
             <div className = "sidebar-route">
@@ -32,9 +35,12 @@ const Sidebar = (props) => {
                     <Route exact path="/"><Home /></Route>
                     <Route exact path="/home"><Home /></Route>
                     <Route exact path = "/ConcerningHobbits"><ConcerningHobbits /></Route>
-                    <Route exact path = "/Neighborhood"><Neighborhood /></Route>
-                    <Route exact path = "/HomeIndex"><HomeIndex/></Route>
-                    <Route exact path = "/Auth"><Auth updateToken={props.updateToken} sessionToken = {props.sessionToken}/></Route>
+                    <Route exact path = "/about"><About /></Route>
+                    <Route exact path = "/HomeTable"><HomeTable token = {props.sessionToken} sessionID = {props.sessionID}/></Route>
+                    {/* <Route exact path = "/Auth"><Auth updateToken={props.updateToken} sessionToken = {props.sessionToken} sessionID = {props.sessionID} updateID={props.updateID}/></Route> */}
+                    {/* <Route exact path = "/Signup"><Signup updateToken={props.updateToken} sessionToken = {props.sessionToken} sessionID={props.sessionID} updateID={props.updateID}/></Route> */}
+                    <Route exact path = "/HobbitonDirectory"><HobbitonDirectory updateToken={props.updateToken} sessionToken = {props.sessionToken} sessionID = {props.sessionID} updateID={props.updateID}/></Route>
+                    <Route exact path = "/MischiefTable"><MischiefTable/></Route>
                 </Switch>
             </div>
         </div>

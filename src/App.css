@@ -6,20 +6,7 @@
   height: 40vmin;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #09d3ac;
-}
 
 .sidebar {
   display:flex;
@@ -28,7 +15,7 @@
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size:20px;
-  height: 150vh;
+  height: 120vh;
 
 }
 
@@ -37,9 +24,9 @@ ul{
 }
 
 .sidebar-list-styling{
-  padding-left: 30px;
-  padding-top: 15px;
-  width: 187.5px;
+  padding-left: 20px;
+  padding-top: 30px;
+  width: 230px;
   height:100%;
   background-color: darkgreen;
   color:goldenrod;
@@ -61,11 +48,28 @@ ul{
   color:darkgreen;
 }
 
+
 .mainDiv p {
   background-color: palegoldenrod;
   color:darkgreen;
-  text-align:center;
+  text-align:justify;
   font-size:20px;
+}
+
+.hobbitDiv p {
+  background-color: palegoldenrod;
+  color:darkgreen;
+  text-align:justify;
+  font-size:15px;
+}
+.hobbitDiv h1{
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  color:darkgreen;
+}
+.hobbitDiv{
+  margin-left:60px;
+  margin-right:60px;
 }
 
 .mainDiv {
@@ -78,18 +82,6 @@ ul{
   color:darkgreen;
 }
 
-/* #authDiv {
-  display:flex;
-  justify-content: center;
-  text-align:center;
-}
-
-#centerLabel {
-  display:flex;
-  justify-content: center;
-  text-align:center;
-} */
-
 .userForm {
   display:fixed;
   justify-content: center;
@@ -98,7 +90,7 @@ ul{
 
 #hobbitonPicTwo {
   margin:0 auto;
-  width:800px;
+  width:100%;
 }
 
 tr {
@@ -140,5 +132,122 @@ buttonCreate:focus{
 }
 
 th {
-  font-size:15px;
+  font-size:17px;
 }
+tbody {
+  font-size:14px;
+}
+
+.createButton {
+  border: none;
+  border-radius: 20px;
+  height: 50px;
+  width: 200px;
+  background-color: darkgreen;
+  color: goldenrod;
+  cursor: pointer;
+  font-size: 20px;
+  display:flex;
+  justify-content: center;
+  margin:0 auto;
+  
+}
+
+.logoutButton {
+  background-color: darkgreen;
+  border: none;
+}
+
+
+.tdpm{
+  font-size:12px;
+}
+
+.sidebarLink:hover{
+  text-decoration: none;
+  color:goldenrod;
+  text-shadow: 1px 1px 5px palegoldenrod;
+}
+
+.accessDir{
+  position:relative;
+  text-align: center;
+  color:darkgreen;
+  background-color: goldenrod;
+  border: 5px solid red;
+  left:30%
+}
+.accessDir:focus{
+  position:relative;
+  box-shadow:0 0 0 1600px rgba(0,0,0,0.65)
+}
+
+#dirErr {
+  color:darkgreen;
+  text-decoration:underline;
+}
+
+.tdec {
+  width:190px;
+}
+
+#editButton{
+  height: 20px;
+  padding:0;
+  font-size:12px;
+  width: 50px;
+  height: 20px;
+  margin-left:10px;
+}
+
+td {
+  font-size: 12px;
+}
+
+
+#modalForm {
+  background-color:palegoldenrod;
+  color:darkgreen;
+}
+#modalBody {
+  background-color: palegoldenrod;
+}
+#modalHeader{
+  background-color: darkgreen;
+  color:goldenrod;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#modalInput{
+  border: none;
+  border-radius: 20px;
+  background-color: goldenrod;
+  height: 40px;
+  width: 470px;
+  text-indent: 10px;
+  font-size: 18px;
+  color:darkgreen;
+}
+#modalInput:focus {
+  outline: none;
+  background-color: darkgreen;
+  color: goldenrod;
+}
+#modalButton {
+  border: none;
+  border-radius: 20px;
+  height: 50px;
+  width: 220px;
+  background-color: darkgreen;
+  color: goldenrod;
+  cursor: pointer;
+  font-size: 18px;
+}
+#modalButton:focus{
+  outline:none;
+}
+.modal-header .close {
+  padding: 1rem 1rem;
+  margin: -1rem -1rem -1rem auto;
+  color: goldenrod;
+}
+

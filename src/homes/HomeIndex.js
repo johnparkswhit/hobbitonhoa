@@ -22,6 +22,8 @@ const HomeIndex = (props) => {
             setHomes(results)
             console.log(results)
             console.log(props.token)
+            // return results
+
         })
     }
 
@@ -49,7 +51,7 @@ const HomeIndex = (props) => {
                     <HomeCreate fetchHomes={fetchHomes} token={props.token}/>
                 </Col>
                 <Col md="9">
-                    <HomeTable homes={homes} editUpdateHome={editUpdateHome} updateOn={updateOn} fetchHomes={fetchHomes} token={props.token}/>
+                    <HomeTable HomeIndex={HomeIndex} homes={homes} editUpdateHome={editUpdateHome} updateOn={updateOn} fetchHomes={fetchHomes} token={props.token}/>
                 </Col>
                 {updateActive ? <HomeEdit homeToUpdate={homeToUpdate} updateOff={updateOff} token={props.token} fetchHomes={fetchHomes}/> : <></>}
             </Row>

@@ -1,16 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
-import Auth from './components/site/Auth/Auth';
 import 'bootstrap/dist/css/bootstrap.css';
-import HomeIndex from './homes/HomeIndex';
 import Sidebar from './components/site/Sidebar';
 import {
   BrowserRouter as Router,
 } from 'react-router-dom';
 
-function App() {
+
+function App(props) {
   const [sessionToken, setSessionToken] = useState('');
+  const [sessionID, setSessionID] = useState('')
+  console.log(sessionToken)
+  console.log(sessionID)
 
   useEffect(() => {
     if (localStorage.getItem('token')){
@@ -23,30 +25,42 @@ function App() {
         setSessionToken(newToken);
         console.log(newToken);
       }
+    
+  useEffect(() => {
+    if (localStorage.getItem('sessionID')){
+      setSessionID(localStorage.getItem('sessionID'))
+    }
+  })
+  const updateID = (newID) => {
+    localStorage.setItem('ID', newID);
+    setSessionID(newID);
+    console.log(newID);
+  }
 
 
 
   const clearToken = () => {
     localStorage.clear();
-    setSessionToken('')
+    setSessionToken('');
+  }
+  const clickLogout = () => {
+    {clearToken()}
+    alert("You have successfully logged out.")
   }
 
-  const protectedIndex = () => {
-    return (sessionToken === localStorage.getItem('token') ? <HomeIndex token = {sessionToken} />
-    : <Auth updateToken={updateToken}/>)
-  }
 
-  const viewConductor = () => {
-    return sessionToken === undefined ? <Auth/> : <HomeIndex token = {sessionToken}/>
-  }
+  // const viewConductor = () => {
+  //   return (sessionToken === localStorage.getItem('token') ? <HomeTable token = {sessionToken} /> : <Auth updateToken={updateToken} updateID={updateID}/>)
+  // }
 
   return (
     <div className="App">
-      <Navbar/>
+      <Navbar clickLogout={clickLogout}/>
       <Router>
-        <Sidebar updateToken={updateToken} sessionToken = {sessionToken}/>
+        <Sidebar updateToken={updateToken} sessionToken = {sessionToken} sessionID={sessionID} updateID={updateID}/>
       </Router>
-      {protectedIndex()}
+      {/* {protectedIndex()} */}
+      {/* {viewConductor()} */}
     </div>
   );
 }

@@ -7,7 +7,7 @@
 }
 
 #hobbitonPic {
-    height:125px;
+    width:230px;
     /* height:20em; */
 }
 
@@ -16,13 +16,13 @@
     flex-direction: row;
     justify-content: space-between;
     background-color:darkgreen;
-    height:125px;
+    height:150px;
 }
 #welcome {
     color:goldenrod;
-    margin:5vh;
+    margin:50px;;
     font-size:450%;
-    font-family: 'hobbiton_brushhahobbitonbrush'
+    font-family: 'hobbiton_brushhahobbitonbrush';
 }
 p {
     font-family: 'arial';
