@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import './Auth.css'
+import APIURL from '../../../helpers/environment'
 
 const Auth = (props) => {
     const [username, setUsername] = useState('');
@@ -45,12 +46,11 @@ const Auth = (props) => {
         }
     }, [])
   
+
     let handleSubmit = (event) => {
         event.preventDefault();
-
         if (login===true) { 
-
-        fetch("http://localhost:3000/user/login", {
+        fetch(`${APIURL}/user/login`, {
             method: 'POST',
             body: JSON.stringify({username:username, password:password}),
             headers: new Headers({
@@ -69,7 +69,7 @@ const Auth = (props) => {
 
         }else{ 
 
-        fetch("http://localhost:3000/user/create", {
+        fetch(`${APIURL}/user/create`, {
             method: 'POST',
             body: JSON.stringify({username:username, password:password}),
             headers: new Headers({

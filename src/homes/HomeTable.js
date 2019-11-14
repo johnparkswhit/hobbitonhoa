@@ -3,6 +3,7 @@ import {Table, Button} from 'reactstrap';
 import HomeEdit from './HomeEdit'
 import HomeCreate from './HomeCreate'
 import HomeDelete from './HomeDelete'
+import APIURL from '../helpers/environment'
 
 const HomeTable = (props) => {
 
@@ -19,7 +20,7 @@ const HomeTable = (props) => {
 
     
     const fetchHomes = () => {
-        fetch('http://localhost:3000/home/dir', {
+        fetch(`${APIURL}/home/dir`, {
             method: 'GET',
             headers: new Headers ({
                 'Content-Type': 'application/json',

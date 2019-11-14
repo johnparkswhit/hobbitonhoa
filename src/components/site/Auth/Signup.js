@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import APIURL from '../../../helpers/environment'
 
 const Signup = (props) => {
     const [firstName, setFirstName] = useState('');
@@ -8,7 +9,7 @@ const Signup = (props) => {
 
     let handleSignup = (event) => {
         event.preventDefault();
-        fetch("http://localhost:3000/user/create", {
+        fetch(`${APIURL}/user/create`, {
             method: 'POST',
             body: JSON.stringify({username:username, password:password}),
             headers: new Headers({

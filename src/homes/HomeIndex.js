@@ -3,6 +3,7 @@ import {Container, Row, Col} from 'reactstrap';
 import HomeCreate from './HomeCreate';
 import HomeTable from './HomeTable';
 import HomeEdit from './HomeEdit';
+import APIURL from '../../../helpers/environment'
 
 const HomeIndex = (props) => {
     const [homes, setHomes] = useState([]);
@@ -10,7 +11,7 @@ const HomeIndex = (props) => {
     const [homeToUpdate, setHomeToUpdate] = useState(useState({}));
 
     const fetchHomes = () => {
-        fetch('http://localhost:3000/home/dir', {
+        fetch(`${APIURL}/home/dir`, {
             method: 'GET',
             headers: new Headers ({
                 'Content-Type': 'application/json',

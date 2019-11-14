@@ -1,10 +1,11 @@
 import React from 'react';
 import {Button, Form, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap'
+import APIURL from '../helpers/environment'
 
 const HomeDelete = (props) => {
     const deleteHome = (event) => {
         event.preventDefault();
-        fetch(`http://localhost:3000/home/delete/${props.homeToDelete.id}`, {
+        fetch(`${APIURL}/home/delete/${props.homeToDelete.id}`, {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',

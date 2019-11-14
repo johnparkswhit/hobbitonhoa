@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
+import APIURL from '../helpers/environment'
 
 const HomeCreate = (props) => {
     const [firstName, setFirstName] = useState('')
@@ -11,7 +12,7 @@ const HomeCreate = (props) => {
 
     const HomeAdd = (event) => {
         event.preventDefault();
-        fetch('http://localhost:3000/home/create', {
+        fetch(`${APIURL}/home/create`, {
             method: 'POST',
             body: JSON.stringify({
                 firstName:firstName, 
