@@ -96,9 +96,7 @@ const HomeTable = (props) => {
                 </tr>
             )
         })}else{
-            return(
-            <p className="accessDir">Please <a id="dirErr" href="/Auth">Log In</a> or <a id="dirErr" href="/Signup">Sign Up</a> to Access Directory</p>
-            )}
+            return('')}
     }
 
     useEffect(() => {

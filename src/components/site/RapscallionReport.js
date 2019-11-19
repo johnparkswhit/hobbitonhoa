@@ -1,18 +1,18 @@
 import React from 'react'
 import Auth from './Auth/Auth'
-import HomeTable from '../../homes/HomeTable'
+import MischiefTable from '../../mischief/MischiefTable'
 
 
 
 const RapscallionReport = (props) => {
 
-    const protectedIndex = () => {
-        return (props.sessionToken === localStorage.getItem('token') ? <MischiefTable sessionID = {props.sessionID} token = {props.sessionToken}/> : <Auth updateToken={props.updateToken} updateID={props.updateID}/>)
+    const protectedReport = () => {
+        return (props.sessionToken === localStorage.getItem('token') ? <MischiefTable token = {props.sessionToken} sessionID = {props.sessionID} username={props.username} updateUsername={props.updateUsername}/> : <Auth updateID={props.updateID} updateToken={props.updateToken} username={props.username} updateUsername={props.updateUsername}/>)
     }
 
     return (
         <div>
-            {protectedIndex()}
+            {protectedReport()}
         </div>
     )
 }

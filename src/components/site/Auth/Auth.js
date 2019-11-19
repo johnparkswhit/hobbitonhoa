@@ -63,8 +63,10 @@ const Auth = (props) => {
                 console.log(data)
                 props.updateToken(data.sessionToken) 
                 props.updateID(data.user.id)
+                props.updateUsername(data.user.username)
                 console.log(data.sessionToken)
-                console.log(data.sessionID)
+                console.log(data.user.username)
+
             })
 
         }else{ 
@@ -81,6 +83,7 @@ const Auth = (props) => {
             ).then((data) => {
                 props.updateToken(data.token)
                 props.updateID(data.user.id)
+                props.updateUsername(data.user.username)
                 console.log(data.token) 
             })
         }

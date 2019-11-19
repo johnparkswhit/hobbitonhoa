@@ -7,9 +7,8 @@ import {
 import Home from './Home'
 import ConcerningHobbits from './ConcerningHobbits'
 import About from './About'
-import HomeTable from '../../homes/HomeTable'
 import HobbitonDirectory from './HobbitonDirectory'
-import MischiefTable from '../../mischief/MischiefTable'
+import RapscallionReport from './RapscallionReport'
 
 
 const Sidebar = (props) => {
@@ -25,7 +24,7 @@ const Sidebar = (props) => {
                     <br/>
                     <li><Link className="sidebarLink" to ="/HobbitonDirectory">Hobbiton Directory</Link></li>
                     <br/>
-                    <li><Link className="sidebarLink" to = "/MischiefTable">Rapscallion Report</Link></li>
+                    <li><Link className="sidebarLink" to = "/RapscallionReport">Rapscallion Report</Link></li>
                     <br/>
                     <li><Link className="sidebarLink" to ="/HobbitonDirectory">Log In/Sign Up</Link></li>
                 </ul>
@@ -36,11 +35,9 @@ const Sidebar = (props) => {
                     <Route exact path="/home"><Home /></Route>
                     <Route exact path = "/ConcerningHobbits"><ConcerningHobbits /></Route>
                     <Route exact path = "/about"><About /></Route>
-                    <Route exact path = "/HomeTable"><HomeTable token = {props.sessionToken} sessionID = {props.sessionID}/></Route>
-                    {/* <Route exact path = "/Auth"><Auth updateToken={props.updateToken} sessionToken = {props.sessionToken} sessionID = {props.sessionID} updateID={props.updateID}/></Route> */}
-                    {/* <Route exact path = "/Signup"><Signup updateToken={props.updateToken} sessionToken = {props.sessionToken} sessionID={props.sessionID} updateID={props.updateID}/></Route> */}
-                    <Route exact path = "/HobbitonDirectory"><HobbitonDirectory updateToken={props.updateToken} sessionToken = {props.sessionToken} sessionID = {props.sessionID} updateID={props.updateID}/></Route>
-                    <Route exact path = "/MischiefTable"><MischiefTable/></Route>
+                    <Route exact path = "/HobbitonDirectory"><HobbitonDirectory updateToken={props.updateToken} sessionToken = {props.sessionToken} sessionID = {props.sessionID} updateID={props.updateID} username={props.username} updateUsername={props.updateUsername}/></Route>
+
+                    <Route exact path = "/RapscallionReport"><RapscallionReport updateToken={props.updateToken} sessionToken = {props.sessionToken} sessionID = {props.sessionID} updateID={props.updateID} username={props.username} updateUsername={props.updateUsername}/></Route>
                 </Switch>
             </div>
         </div>

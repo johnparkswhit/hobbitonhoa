@@ -11,6 +11,7 @@ import {
 function App(props) {
   const [sessionToken, setSessionToken] = useState('');
   const [sessionID, setSessionID] = useState('')
+  const [username, setUsername] = useState('')
   console.log(sessionToken)
   console.log(sessionID)
 
@@ -38,6 +39,18 @@ function App(props) {
   }
 
 
+  useEffect(() => {
+    if (localStorage.getItem('username')){
+      setUsername(localStorage.getItem('username'))
+    }
+  })
+  const updateUsername = (newUsername) => {
+    localStorage.setItem('Username', newUsername);
+    setUsername(newUsername);
+    console.log(newUsername);
+  }
+
+
 
   const clearToken = () => {
     localStorage.clear();
@@ -57,7 +70,7 @@ function App(props) {
     <div className="App">
       <Navbar clickLogout={clickLogout}/>
       <Router>
-        <Sidebar updateToken={updateToken} sessionToken = {sessionToken} sessionID={sessionID} updateID={updateID}/>
+        <Sidebar updateToken={updateToken} sessionToken = {sessionToken} sessionID={sessionID} updateID={updateID} username={username} updateUsername={updateUsername}/>
       </Router>
       {/* {protectedIndex()} */}
       {/* {viewConductor()} */}

@@ -3,7 +3,7 @@ import {Container, Row, Col} from 'reactstrap';
 import HomeCreate from './HomeCreate';
 import HomeTable from './HomeTable';
 import HomeEdit from './HomeEdit';
-import APIURL from '../../../helpers/environment'
+import APIURL from '../helpers/environment'
 
 const HomeIndex = (props) => {
     const [homes, setHomes] = useState([]);

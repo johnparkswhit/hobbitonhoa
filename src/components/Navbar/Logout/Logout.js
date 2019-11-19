@@ -1,7 +1,7 @@
 import React from 'react';
 import './Logout.css';
 import logOutPic from '../../../assets/logouticon.png'
-import Home from '../../site/Home'
+
 
 const Logout = (props) => {
     return(
