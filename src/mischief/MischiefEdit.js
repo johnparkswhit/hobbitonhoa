@@ -4,7 +4,7 @@ import APIURL from '../helpers/environment'
 
 const MischiefEdit = (props) => {
     const [editComplaint, setEditComplaint] = useState(props.mischiefToUpdate.complaint);
-    const [editSuspect, setEditSuspect] = useState(props.mischiefToUpdate.lastName);
+    const [editSuspect, setEditSuspect] = useState(props.mischiefToUpdate.suspect);
 
     const mischiefUpdate = (event, mischief) => {
         event.preventDefault();
@@ -34,10 +34,10 @@ const MischiefEdit = (props) => {
                 <Form id="modalForm" onSubmit={mischiefUpdate}>
                     <FormGroup>
                         <Label htmlFor="complaint">Edit Complaint:</Label>
-                        <Input id="modalInput" name="complaint" value={editComplaint} onChange={(event) => setEditComplaint(event.target.value)}/>
+                        <Input id="modalInput" name="complaint" required value={editComplaint} onChange={(event) => setEditComplaint(event.target.value)}/>
                     </FormGroup>
                     <FormGroup>
-                        <Label htmlFor="lastName">Edit Suspect(s):</Label>
+                        <Label htmlFor="suspect">Edit Suspect(s):</Label>
                         <Input id="modalInput" name="suspect" value={editSuspect} onChange={(event) => setEditSuspect(event.target.value)}/>
                     </FormGroup>
                     <ModalFooter>

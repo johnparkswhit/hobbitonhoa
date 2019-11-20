@@ -38,7 +38,7 @@ const MischiefCreate = (props) => {
                 <Form id="modalForm" onSubmit={MischiefAdd}>
                     <FormGroup>
                         <Label htmlFor="complaint">Complaint Details:</Label>
-                        <Input id="complaintInput" name="complaint" value={complaint} onChange={(event) => setComplaint(event.target.value)}/>
+                        <Input id="complaintInput" name="complaint" required value={complaint} onChange={(event) => setComplaint(event.target.value)}/>
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor="suspect">Suspected Scallywag:</Label>

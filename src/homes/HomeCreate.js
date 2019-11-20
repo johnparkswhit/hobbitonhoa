@@ -45,15 +45,15 @@ const HomeCreate = (props) => {
                 <Form id="modalForm" onSubmit={HomeAdd}>
                     <FormGroup>
                         <Label htmlFor="firstName">First Name:</Label>
-                        <Input id="modalInput" name="firstName" value={firstName} onChange={(event) => setFirstName(event.target.value)}/>
+                        <Input id="modalInput" name="firstName" required value={firstName} onChange={(event) => setFirstName(event.target.value)}/>
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor="lastName">Last Name:</Label>
-                        <Input id="modalInput" name="lastName" value={lastName} onChange={(event) => setLastName(event.target.value)}/>
+                        <Input id="modalInput" name="lastName" required value={lastName} onChange={(event) => setLastName(event.target.value)}/>
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor="address">Address:</Label>
-                        <Input id="modalInput" name="address" value={address} onChange={(event) => setAddress(event.target.value)}/> 
+                        <Input id="modalInput" name="address" required value={address} onChange={(event) => setAddress(event.target.value)}/> 
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor="occupation">Occupation:</Label>

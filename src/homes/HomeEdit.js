@@ -42,15 +42,15 @@ const HomeEdit = (props) => {
                 <Form id="modalForm" onSubmit={homeUpdate}>
                     <FormGroup>
                         <Label htmlFor="firstName">Edit First Name:</Label>
-                        <Input id="modalInput" name="firstName" value={editFirstName} onChange={(event) => setEditFirstName(event.target.value)}/>
+                        <Input id="modalInput" name="firstName" required value={editFirstName} onChange={(event) => setEditFirstName(event.target.value)}/>
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor="lastName">Edit Last Name:</Label>
-                        <Input id="modalInput" name="lastName" value={editLastName} onChange={(event) => setEditLastName(event.target.value)}/>
+                        <Input id="modalInput" name="lastName" required value={editLastName} onChange={(event) => setEditLastName(event.target.value)}/>
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor="address">Edit Address:</Label>
-                        <Input id="modalInput" name="address" value={editAddress} onChange={(event) => setEditAddress(event.target.value)}/> 
+                        <Input id="modalInput" name="address" required value={editAddress} onChange={(event) => setEditAddress(event.target.value)}/> 
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor="occupation">Edit Occupation:</Label>
