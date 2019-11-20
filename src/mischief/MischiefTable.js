@@ -104,7 +104,7 @@ const MischiefTable = (props) => {
         <>
         <h2 className="mainDiv">Rapscallion Report</h2>
         <hr/>
-        <button className="createButton" onClick={() => {editAddMischief(); addOn()}}>See Something? Say Something</button>
+        <button className="createMischiefButton" onClick={() => {editAddMischief(); addOn()}}>See Something? Say Something.</button>
         <hr/>
 
         {addActive ? <MischiefCreate setAddActive={setAddActive} addActive={addActive} addMischief={addMischief} addOff={addOff} token={props.token} fetchMischief={fetchMischief}/> : <></>}

@@ -58,7 +58,7 @@ function App(props) {
   }
   const clickLogout = () => {
     {clearToken()}
-    alert("You have successfully logged out.")
+    alert("See you next time!")
   }
 
 

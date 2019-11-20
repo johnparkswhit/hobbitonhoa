@@ -15,7 +15,7 @@
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size:20px;
-  height: 120vh;
+  height: 150vh;
 
 }
 
@@ -103,7 +103,7 @@ tr {
   background-color: goldenrod;
   height: 40px;
   width: 250px;
-  text-indent: 10px;
+  text-indent: 15px;
   font-size: 18px;
   color:darkgreen;
 }
@@ -150,12 +150,43 @@ tbody {
   display:flex;
   justify-content: center;
   margin:0 auto;
-  
+}
+.createButton:hover{
+  background-color: rgb(0, 115, 0)
+}
+.createButton:active {
+  background-color: rgb(0, 115, 0);
+  box-shadow: 0 5px rgb(0, 80, 0);
+  transform: translateY(4px);
+}
+.createMischiefButton {
+  border: none;
+  border-radius: 20px;
+  height: 70px;
+  width: 180px;
+  background-color: darkgreen;
+  color: goldenrod;
+  cursor: pointer;
+  font-size: 20px;
+  display:flex;
+  justify-content: center;
+  margin:0 auto;
+}
+.createMischiefButton:hover{
+  background-color: rgb(0, 115, 0)
+}
+.createMischiefButton:active {
+  background-color: rgb(0, 115, 0);
+  box-shadow: 0 5px rgb(0, 80, 0);
+  transform: translateY(4px);
 }
 
 .logoutButton {
   background-color: darkgreen;
   border: none;
+}
+.logoutButton:focus{
+  outline:none;
 }
 
 
@@ -199,6 +230,30 @@ tbody {
   height: 20px;
   margin-left:10px;
 }
+#editButton:hover{
+  background-color: rgb(231, 196, 0)
+}
+#editButton:active {
+  background-color: rgb(231, 196, 0);
+  box-shadow: 0 4px rgb(172, 146, 0);
+  transform: translateY(4px);
+}
+#deleteButton{
+  height: 20px;
+  padding:0;
+  font-size:12px;
+  width: 50px;
+  height: 20px;
+  margin-left:10px;
+}
+#deleteButton:hover{
+  background-color: rgb(190, 50, 50)
+}
+#deleteButton:active {
+  background-color: rgb(190, 50, 50);
+  box-shadow: 0 4px rgb(143, 38, 38);
+  transform: translateY(4px);
+}
 
 td {
   font-size: 12px;
@@ -223,11 +278,26 @@ td {
   background-color: goldenrod;
   height: 40px;
   width: 470px;
-  text-indent: 10px;
+  text-indent: 15px;
   font-size: 18px;
   color:darkgreen;
 }
 #modalInput:focus {
+  outline: none;
+  background-color: darkgreen;
+  color: goldenrod;
+}
+#complaintInput {
+  border: none;
+  border-radius: 20px;
+  background-color: goldenrod;
+  height: 40px;
+  width: 470px;
+  text-indent: 15px;
+  font-size: 18px;
+  color:darkgreen;
+}
+#complaintInput:focus {
   outline: none;
   background-color: darkgreen;
   color: goldenrod;
@@ -245,6 +315,16 @@ td {
 #modalButton:focus{
   outline:none;
 }
+#modalButton:hover{
+  background-color: rgb(0, 115, 0)
+}
+#modalButton:active {
+  background-color: rgb(0, 115, 0);
+  box-shadow: 0 5px rgb(0, 80, 0);
+  transform: translateY(4px);
+}
+
+
 .modal-header .close {
   padding: 1rem 1rem;
   margin: -1rem -1rem -1rem auto;

@@ -88,7 +88,7 @@ const HomeTable = (props) => {
                         : ""}
                     
                         {home.owner===props.sessionID ? 
-                        <Button id="editButton" color="danger" onClick={() => {editDeleteHome(home); deleteOn()}}>Delete</Button>
+                        <Button id="deleteButton" color="danger" onClick={() => {editDeleteHome(home); deleteOn()}}>Delete</Button>
                         : ""}
                     </td>
                     {updateActive ? <HomeEdit homeToUpdate={homeToUpdate} updateOff={updateOff} token={props.token} fetchHomes={fetchHomes}/> : <></>}
