@@ -36,7 +36,7 @@ const Login = (props)=> {
                     <Label htmlFor="password">Password</Label>
                     <Input onChange={(event) => setPassword(event.target.value)} name="password" value={password}/>
                 </FormGroup>
-                <Button type="submit">Login</Button>
+                <Button id="authButton" type="submit">Login</Button>
             </Form>
         </div>
     )

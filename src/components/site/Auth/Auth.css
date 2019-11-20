@@ -27,9 +27,17 @@
     cursor: pointer;
     font-size: 15px;
 }
-button:focus{
+#button:focus{
     outline:none;
 }
+#button:hover{
+    background-color: rgb(0, 115, 0)
+  }
+#button:active {
+    background-color: rgb(0, 115, 0);
+    box-shadow: 0 5px rgb(0, 80, 0);
+    transform: translateY(4px);
+  }
 
 #centerLabel {
     color:darkgreen;
